@@ -1,4 +1,4 @@
-<h2 align="center">Covid-19</h2>
+<h2 align="center"> Dashboard Covid-19</h2>
 
 <h1 align="center">
 <img src="./src/assets/images/virus.png" alt=" icones by https://www.flaticon.com/br/autores/freepik www.flaticon.com">

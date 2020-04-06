@@ -5,9 +5,11 @@
 
 </h1>
 <p align="center">
+  
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/abauruel/MonitorCovid-19"/>
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/abauruel/MonitorCovid-19"/>
+  
  <a href="https://github.com/abauruel/MonitorCovid-19/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/abauruel/MonitorCovid-19"/>
   </a>

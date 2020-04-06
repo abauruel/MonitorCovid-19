@@ -13,9 +13,6 @@
  <a href="https://github.com/abauruel/MonitorCovid-19/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/abauruel/MonitorCovid-19"/>
   </a>
-   <a href="https://github.com/abauruel/MonitorCovid-19/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/abauruel/MonitorCovid-19">
-  </a>
  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
 

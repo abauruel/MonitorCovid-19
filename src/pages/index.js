@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import Helmet from "react-helmet";
-import L, { latLng } from "leaflet";
-import axios from "axios";
+import L from "leaflet";
+import api from "../services/api";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
 import Map from "components/Map";
+import ContainerTotalCases from "../components/ContainerTotalCases";
+import ContainerCases from "../components/ContainerCases";
 
 const LOCATION = {
   lat: 68,
@@ -108,9 +110,10 @@ const IndexPage = () => {
   useEffect(() => {
     async function loadApi() {
       try {
-        const response = await axios.get("https://corona.lmao.ninja/countries");
+        const response = await api.get("countries");
         setData(response.data);
-        const total = await axios.get("https://corona.lmao.ninja/all");
+
+        const total = await api.get("all");
 
         setTotalCases(total.data);
       } catch (error) {
@@ -126,73 +129,22 @@ const IndexPage = () => {
         <title>Home Page</title>
       </Helmet>
       <Container>
-        <div className="TotalCases">
-          <small>Total Confirmed</small>
-          <p>{new Intl.NumberFormat("pt-BR").format(totalCases.cases)}</p>
-        </div>
-        <div className="countryCases">
-          <p>Confirmed Cases by Country/Region/Sovereignty</p>
-          <ul>
-            {data
-              ?.sort((a, b) => (a.cases > b.cases ? -1 : 1))
-              .map((c) => (
-                <li key={c.country}>
-                  <div>
-                    <span>
-                      {new Intl.NumberFormat("pt-BR").format(c.cases)}
-                    </span>
-                    <span>{c.country}</span>
-                  </div>
-                </li>
-              ))}
-          </ul>
-        </div>
+        <ContainerTotalCases data={data} totalCases={totalCases} />
       </Container>
       <Map {...mapSettings} />
 
-      <div className="Deaths">
-        <div>
-          <small>Total Deaths</small>
-          <p>{new Intl.NumberFormat("pt-BR").format(totalCases.deaths)}</p>
-        </div>
-        <ul>
-          {data
-            ?.sort((a, b) => (a.deaths > b.deaths ? -1 : 1))
-            .map((c) => (
-              <li key={c.country}>
-                <div className="CountryCasesDeath">
-                  <span>
-                    {new Intl.NumberFormat("pt-BR").format(c.deaths)} deaths
-                  </span>
-                  <span>{c.country}</span>
-                </div>
-              </li>
-            ))}
-        </ul>
-      </div>
-      <div className="Deaths">
-        <div>
-          <small>Total Recovered</small>
-          <p style={{ color: "yellowgreen" }}>
-            {new Intl.NumberFormat("pt-BR").format(totalCases.recovered)}
-          </p>
-        </div>
-        <ul>
-          {data
-            ?.sort((a, b) => (a.recovered > b.recovered ? -1 : 1))
-            .map((c) => (
-              <li key={c.country}>
-                <div className="CountryCasesDeath">
-                  <span style={{ color: "yellowgreen" }}>
-                    {new Intl.NumberFormat("pt-BR").format(c.recovered)}{" "}
-                    recovered
-                  </span>
-                  <span>{c.country}</span>
-                </div>
-              </li>
-            ))}
-        </ul>
-      </div>
+      <ContainerCases
+        data={data}
+        totalCases={totalCases.deaths}
+        type="deaths"
+        order="5"
+      />
+      <ContainerCases
+        data={data}
+        totalCases={totalCases.recovered}
+        type="recovered"
+        order="7"
+      />
     </Layout>
   );
 };

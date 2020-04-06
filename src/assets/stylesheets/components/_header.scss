@@ -1,12 +1,17 @@
 header {
-
-  width: 100%;
-  color: $white;
-  background-color: $gatsby-purple;
+  color: #bdbdbd;
+  background-color: #212121;
+  border: 1px solid #333;
+  margin: 10px;
+  border-radius: 4px;
+  font-family: serif;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 33px;
 
   .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     height: 2.5em;
     line-height: 2.5em;
   }
@@ -25,13 +30,10 @@ header {
     display: block;
     color: lighten($gatsby-purple, 50);
     text-decoration: none;
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 
   p {
-    font-size: 1.2em;
-    font-weight: bold;
     margin: 0;
   }
-
 }

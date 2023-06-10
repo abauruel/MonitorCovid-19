@@ -6,7 +6,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.20.12",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-react-helmet": "^3.2.1",
     "gatsby-plugin-react-leaflet": "2.0.12",
     "gatsby-plugin-resolve-src": "^2.0.0",
